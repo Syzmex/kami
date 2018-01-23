@@ -1,0 +1,65 @@
+
+html, body, #__next, #__next > [data-reactroot] {
+  height: 100%;
+}
+
+/**
+ * 页眉
+ */
+
+.header {
+  height: 233px;
+  display: flex;
+  flex-direction: column-reverse; // 从下往上排
+  background-color: fade(#000, 80%);
+  // background-image: linear-gradient(
+  //   135deg,
+  //   rgba(255,255,255,.08) 25%,
+  //   transparent 25%,
+  //   transparent 50%,
+  //   rgba(255,255,255,.08) 50%,
+  //   rgba(255,255,255,.08) 75%,
+  //   transparent 75%,
+  //   transparent
+  // );
+  // background-size: 1rem 1rem;
+  // border-top: 3px solid @primary-color;
+}
+
+// 导航
+.nav {
+  .page-container();
+  line-height: 32px;
+}
+
+.nav-link {
+  margin-right: 8px;
+  font-weight: bold;
+  color: fade(#fff, 85%);
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+/**
+ * 内容
+ */
+
+.body {
+  .page-container();
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+/**
+ * 页脚
+ */
+
+.footer {
+  .page-container();
+  overflow: hidden;
+  text-align: center;
+  font-size: @font-size-sm;
+  color: @text-color-more-secondary;
+}

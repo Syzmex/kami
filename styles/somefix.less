@@ -1,0 +1,167 @@
+
+/**
+ * fix 参考文件
+ * https://github.com/ant-design/ant-design/blob/master/components/style/core/base.less
+ * https://github.com/necolas/normalize.css/blob/master/normalize.css
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// antd 和 normalize.css 差异部分
+html {
+  font-family: sans-serif;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  // 平滑滚动
+  scroll-behavior: smooth;
+
+  // 侧重文本的可读性
+  text-rendering: optimizeLegibility;
+
+  // 文字抗锯齿
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+// IE10+ doesn't honor `<meta name="viewport">` in some cases.
+@at-root {
+  @-ms-viewport { width: device-width; }
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+textarea {
+  -webkit-appearance: none;
+}
+
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+  // remove the default appearance of temporal inputs to avoid a Mobile Safari
+  // bug where setting a custom line-height prevents text from being vertically
+  // centered within the input.
+  // See https://bugs.webkit.org/show_bug.cgi?id=139848
+  // and https://github.com/twbs/bootstrap/issues/11266
+  -webkit-appearance: listbox;
+}
+
+// code
+pre,
+code,
+kbd,
+samp {
+  font-family: @code-family;
+}
+
+pre {
+  // remove browser default top margin
+  margin-top: 0;
+  // Reset browser default of `1em` to use `em`s
+  margin-bottom: 1em;
+  // Don't allow content to break outside
+  overflow: auto;
+}
+
+p,
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}
+
+dt {
+  font-weight: 500;
+}
+
+dd {
+  margin-bottom: .5em;
+  margin-left: 0; // Undo browser default
+}
+
+blockquote {
+  margin: 0 0 1em;
+}
+
+img {
+  vertical-align: middle;
+}
+
+
+// Avoid 300ms click delay on touch devices that support the `touch-action` CSS property.
+//
+// In particular, unlike most other browsers, IE11+Edge on Windows 10 on touch devices and IE Mobile 10-11
+// DON'T remove the click delay when `<meta name="viewport" content="width=device-width">` is present.
+// However, they DO support emoving the click delay via `touch-action: manipulation`.
+// See:
+// * https://getbootstrap.com/docs/4.0/content/reboot/#click-delay-optimization-for-touch
+// * http://caniuse.com/#feat=css-touch-action
+// * https://patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay
+a,
+area,
+button,
+[role="button"],
+input:not([type=range]),
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
+
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+
+textarea {
+  // Textareas should really only resize vertically so they don't break their (horizontal) containers.
+  resize: vertical;
+}
+
+
+//
+// Tables
+//
+
+table {
+  border-collapse: collapse; // Prevent double borders
+}
+
+caption {
+  padding-top: .75em;
+  padding-bottom: .3em;
+  color: @text-color-secondary;
+  text-align: left;
+  caption-side: bottom;
+}
+
+th {
+  // Matches default `<td>` alignment by inheriting from the `<body>`, or the
+  // closest parent with a set `text-align`.
+  text-align: inherit;
+}
+
+output {
+  display: inline-block;
+}
+
+mark {
+  padding: .2em;
+  background-color: @yellow-1;
+}

@@ -1,0 +1,19 @@
+{
+  "parser": "babel-eslint",
+  "extends": "promise",
+  "plugins": ["compat"],
+  "settings": {
+    "import/resolver": {
+      ".eslintrc.alias.js": [
+        [ "styles", "./styles" ],
+        [ "components", "./components" ]
+      ]
+    }
+  },
+  "rules": {
+    "react/react-in-jsx-scope": [0],
+    "jsx-a11y/html-has-lang": [0],
+    "object-property-newline": [0],
+    "react/no-danger": [0]
+  }
+}

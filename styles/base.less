@@ -1,0 +1,141 @@
+
+/**
+ * 颜色转换 http://bgrins.github.io/TinyColor/
+ */
+
+@import './color';
+
+/**
+ * font-face
+ */
+
+@font-face {
+  font-family: "Monospace Number";
+  src: local("Tahoma");
+  unicode-range: U+30-39;
+}
+
+@font-face {
+  font-family: "Chinese Quote";
+  src: local("PingFang SC"), local("SimSun");
+  unicode-range: U+2018, U+2019, U+201c, U+201d;
+}
+
+/**
+ * variables
+ */
+
+// -------- 链接以及可点击的文字 ------------
+@link-color: @rose-6;
+@link-hover-color: @rose-5;
+@link-active-color: @rose-7;
+@link-disabled-color: fade(#000, 25%);
+// -------- 背景色 ------------
+// Background color for `<body>`
+@body-background: #f8f8f8;
+// Base background color for most components
+// @component-background: #fff;
+
+// -------- 字体设置 ------------
+// 字体
+@font-family-no-number: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family: "Monospace Number", @font-family-no-number;
+@code-family: Consolas, Menlo, Courier, monospace;
+
+// 大小
+@font-size-base: 14px;
+@font-size-lg: @font-size-base + 2px;
+@font-size-sm: 12px;
+
+// 颜色
+@heading-color            : fade(#000, 85%);
+@text-color               : fade(#000, 75%);
+@text-color-secondary     : fade(#000, 50%);
+@text-color-more-secondary: fade(#000, 35%);
+@text-emphasis-color      : fade(#000, 80%);
+@text-color-dark          : fade(#fff, 90%);
+
+// -------- 排版 -------------
+@line-height-base: 1.5;
+
+// -------- 圆角 -------------
+@border-radius-base: 4px;
+@border-radius-sm: 2px;
+
+// -------- Colors -----------
+@primary-color: @rose-6;
+// @info-color             : @blue-6;
+// @success-color          : @green-6;
+// @processing-color       : @primary-color;
+// @error-color            : @red-6;
+// @highlight-color        : @red-6;
+// @warning-color          : @gold-6;
+// @normal-color           : #d9d9d9;
+
+// Color used by default to control hover and active backgrounds and for
+// alert info backgrounds.
+@primary-1: color(~`colorPalette("@{primary-color}", 1)`);  // replace tint(@primary-color, 90%)
+@primary-2: color(~`colorPalette("@{primary-color}", 2)`);  // replace tint(@primary-color, 80%)
+@primary-3: color(~`colorPalette("@{primary-color}", 3)`);  // unused
+@primary-4: color(~`colorPalette("@{primary-color}", 4)`);  // unused
+@primary-5: color(~`colorPalette("@{primary-color}", 5)`);  // color used to control the text color in many active and hover states, replace tint(@primary-color, 20%)
+@primary-6: @primary-color;                                 // color used to control the text color of active buttons, don't use, use @primary-color
+@primary-7: color(~`colorPalette("@{primary-color}", 7)`);  // replace shade(@primary-color, 5%)
+@primary-8: color(~`colorPalette("@{primary-color}", 8)`);  // unused
+@primary-9: color(~`colorPalette("@{primary-color}", 9)`);  // unused
+@primary-10: color(~`colorPalette("@{primary-color}", 10)`);  // unused
+
+// // Base Scaffolding Variables
+// // ---
+
+// // Background color for `<body>`
+// @body-background        : #fff;
+// // Base background color for most components
+// @component-background   : #fff;
+// @font-family-no-number  : "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+// @font-family            : "Monospace Number", @font-family-no-number;
+// @code-family            : Consolas, Menlo, Courier, monospace;
+// @heading-color          : fade(#000, 85%);
+// @text-color             : fade(#000, 65%);
+// @text-color-secondary   : fade(#000, 45%);
+// @heading-color-dark     : fade(#fff, 100%);
+// @text-color-dark        : fade(#fff,85%);
+// @text-color-secondary-dark: fade(#fff, 65%);
+// @font-size-base         : 14px;
+// @font-size-lg           : @font-size-base + 2px;
+// @font-size-sm           : 12px;
+// @line-height-base       : 1.5;
+// @border-radius-base     : 4px;
+// @border-radius-sm       : 2px;
+
+// vertical paddings
+@padding-lg: 24px; // containers
+@padding-md: 16px; // small containers and buttons
+@padding-sm: 12px; // Form controls and items
+@padding-xs: 8px;  // small items
+
+// Media queries breakpoints
+// Extra small screen / phone
+@screen-xs-min: 480px;
+
+// Small screen / tablet
+@screen-sm-min: 576px;
+
+// Medium screen / desktop
+@screen-md-min: 768px;
+
+// Large screen / wide desktop
+@screen-lg-min: 992px;
+
+// Extra large screen / full hd
+@screen-xl-min: 1200px;
+
+// Extra extra large screen / large descktop
+// @screen-xxl-min: 1600px;
+
+// provide a maximum
+@screen-xs-max: (@screen-sm-min - 1px);
+@screen-sm-max: (@screen-md-min - 1px);
+@screen-md-max: (@screen-lg-min - 1px);
+@screen-lg-max: (@screen-xl-min - 1px);
+// @screen-xl-max: (@screen-xxl-min - 1px);

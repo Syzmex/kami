@@ -1,0 +1,49 @@
+
+.index-page {
+  display: flex;
+}
+
+.pane {
+  width: 200px;
+  float: right;
+  flex: 1 0 auto;
+  padding-left: 12px;
+  @media (max-width: @screen-sm-max) {
+    display: none;
+  }
+  @media (min-width: @screen-xl-min) {
+    width: 250px;
+  }
+}
+
+.posts {
+  flex: 1 1 auto;
+  padding-right: 12px;
+}
+
+.post {
+  margin: 24px 0 64px;
+}
+
+.post-title {
+  font-size: 2.5em;
+  margin-bottom: @padding-xs;
+  a {
+    font-weight: 400;
+    color: @heading-color;
+    &:hover {
+      color: @primary-6;
+      text-decoration: none;
+    }
+  }
+}
+
+.post-info {
+  margin-bottom: @padding-md;
+  font-size: @font-size-sm;
+  color: @text-color-secondary;
+}
+
+.post-summary {
+  line-height: 1.8;
+}
