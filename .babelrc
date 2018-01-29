@@ -5,6 +5,7 @@
       "module-resolver", {
         "root": ["."],
         "alias": {
+          "lib": "./lib",
           "styles": "./styles",
           "components": "./components"
         },

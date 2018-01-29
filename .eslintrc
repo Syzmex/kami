@@ -5,6 +5,7 @@
   "settings": {
     "import/resolver": {
       ".eslintrc.alias.js": [
+        [ "lib", "./lib" ],
         [ "styles", "./styles" ],
         [ "components", "./components" ]
       ]
@@ -14,6 +15,8 @@
     "react/react-in-jsx-scope": [0],
     "jsx-a11y/html-has-lang": [0],
     "object-property-newline": [0],
-    "react/no-danger": [0]
+    "react/no-danger": [0],
+    "no-return-await": [0],
+    "no-empty": [0]
   }
 }

@@ -1,5 +1,6 @@
 
 import Link from 'next/link';
+import moment from 'moment';
 
 
 const PostLink = ({ hash, children }) => (
@@ -10,27 +11,23 @@ const PostLink = ({ hash, children }) => (
   </h1>
 );
 
-const Layout = ({ children }) => (
-  <section className="index-page">
-    <article className="posts">
-      <section className="post">
-        <PostLink hash="这么大的标题你居然看不见1">这么大的标题你居然看不见</PostLink>
-        <div className="post-info">2016 年 10 月 18 日</div>
-        <div className="post-summary">这是一款简洁的单栏的适合阅读的 Typecho 主题，适合放大段大段的文字、代码。因为考虑到一些阅读的舒适性的问题，所以栏宽设置的并不宽。</div>
-      </section>
-      <section className="post">
-        <PostLink hash="这么大的标题你居然看不见2">这么大的标题你居然看不见</PostLink>
-        <div className="post-info">2016 年 10 月 18 日</div>
-        <div className="post-summary">这是一款简洁的单栏的适合阅读的 Typecho 主题，适合放大段大段的文字、代码。因为考虑到一些阅读的舒适性的问题，所以栏宽设置的并不宽。</div>
-      </section>
-      <section className="post">
-        <PostLink hash="这么大的标题你居然看不见3">这么大的标题你居然看不见</PostLink>
-        <div className="post-info">2016 年 10 月 18 日</div>
-        <div className="post-summary">这是一款简洁的单栏的适合阅读的 Typecho 主题，适合放大段大段的文字、代码。因为考虑到一些阅读的舒适性的问题，所以栏宽设置的并不宽。</div>
-      </section>
-    </article>
-    <aside className="pane"></aside>
-  </section>
-);
+const Layout = ({ posts }) => {
+  return (
+    <section className="index-page">
+      <article className="posts">
+        {posts.map(({ hash, title, publishDatetime, summary }) => {
+          return (
+            <section key={hash} className="post">
+              <PostLink hash={hash}>{title}</PostLink>
+              <div className="post-info">{moment( publishDatetime ).format( 'YYYY年MM月DD日 HH:mm:ss' )}</div>
+              <div className="post-summary">{summary}</div>
+            </section>
+          );
+        })}
+      </article>
+      <aside className="pane"></aside>
+    </section>
+  );
+};
 
 export default Layout;
