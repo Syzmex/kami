@@ -1,6 +1,7 @@
 
 // const { BundleAnalyzerPlugin } = require( 'webpack-bundle-analyzer' );
 const { paths } = require( 'kiwiai' );
+const { modifyVars } = require( './styles/conf' );
 // // const { ANALYZE } = process.env;
 const resolvePath = paths.resolveApp;
 
@@ -31,7 +32,10 @@ module.exports = {
         'babel-loader',
         'raw-loader',
         'postcss-loader',
-        'less-loader'
+        {
+          loader: 'less-loader',
+          options: { modifyVars }
+        }
       ]
     });
 

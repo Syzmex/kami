@@ -1,8 +1,9 @@
 
 import React from 'react';
+import axios from 'axios';
 import Layout from 'components/Layout';
 import PostPage from 'components/PostPage';
-import getPost from '../lib/post';
+
 
 const Post = ( props ) => (
   <Layout>
@@ -11,7 +12,12 @@ const Post = ( props ) => (
 );
 
 Post.getInitialProps = async ({ query }) => {
-  return { post: await getPost( query.hash ) };
+  const res = await axios({
+    url: 'http://127.0.0.1:3000/data/getpost',
+    method: 'post',
+    data: query
+  });
+  return { post: res.data };
 };
 
 export default Post;

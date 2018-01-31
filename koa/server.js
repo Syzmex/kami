@@ -1,7 +1,8 @@
 
-const Koa = require( 'koa' );
-const next = require( 'next' );
-const Router = require( 'koa-router' );
+import Koa from 'koa';
+import next from 'next';
+import Router from 'koa-router';
+import postRest from './postRest';
 
 const port = parseInt( process.env.PORT, 10 ) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
@@ -13,6 +14,8 @@ app.prepare()
 
     const server = new Koa();
     const router = new Router();
+
+    postRest( router, '/data' );
 
     router.get( '/post', async ctx => {
       ctx.redirect( '/' );

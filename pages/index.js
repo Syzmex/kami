@@ -1,8 +1,7 @@
 
+import axios from 'axios';
 import Layout from 'components/Layout';
 import IndexPage from 'components/IndexPage';
-import initData from 'lib/initData';
-import getAllPost from 'lib/posts';
 
 
 const Index = ({ posts }) => (
@@ -12,10 +11,11 @@ const Index = ({ posts }) => (
 );
 
 Index.getInitialProps = async () => {
-  await initData();
-  return {
-    posts: await getAllPost()
-  };
+  const res = await axios({
+    url: 'http://127.0.0.1:3000/data/getallposts',
+    method: 'get'
+  });
+  return { posts: res.data };
 };
 
 export default Index;
