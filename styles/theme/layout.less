@@ -28,17 +28,20 @@ html, body, #__next, #__next > [data-reactroot] {
 
 // 导航
 .nav {
-  .page-container();
   line-height: 32px;
+  ul {
+    text-align: right;
+    list-style: none;
+    padding: 0;
+  }
 }
 
 .nav-link {
-  margin-right: 8px;
   font-weight: bold;
-  color: fade(#fff, 85%);
+  color: @text-color;
   &:hover {
     text-decoration: none;
-    color: white;
+    color: lighten(@text-color, 30%);
   }
 }
 

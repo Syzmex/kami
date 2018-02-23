@@ -1,4 +1,5 @@
 
+import React from 'react';
 import Link from 'next/link';
 import moment from 'moment';
 
@@ -11,7 +12,7 @@ const PostLink = ({ hash, children }) => (
   </h1>
 );
 
-const Layout = ({ posts }) => {
+const Layout = ({ posts, nav }) => {
   return (
     <section className="index-page">
       <article className="posts">
@@ -25,7 +26,9 @@ const Layout = ({ posts }) => {
           );
         })}
       </article>
-      <aside className="pane"></aside>
+      <aside className="pane">
+        {nav}
+      </aside>
     </section>
   );
 };

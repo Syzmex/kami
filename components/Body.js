@@ -1,4 +1,7 @@
 
+import React from 'react';
+
+
 const Layout = ({ children }) => (
   <section className="body">
     {children}

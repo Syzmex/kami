@@ -4,7 +4,7 @@ import React from 'react';
 
 class PostPage extends React.Component {
   render() {
-    const { post = {}} = this.props;
+    const { post = {}, nav } = this.props;
     return (
       <section className="post-page">
         <article className="post-body">
@@ -12,6 +12,9 @@ class PostPage extends React.Component {
           <div className="post-info">{post.info}</div>
           <section className="post-content">{post.content}</section>
         </article>
+        <aside className="pane">
+          {nav}
+        </aside>
       </section>
     );
   }

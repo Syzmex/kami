@@ -21,15 +21,18 @@ class Nav extends Component {
     menuOpened: false
   };
 
-  componentDidMount() {console.log(1);
-    this.resizeEvent = addEventListener( window, 'resize', () => {console.log(2);
+  componentDidMount() {
+    this.resizeEvent = addEventListener( window, 'resize', () => {
       const { menuOpened } = this.state;
+      const { onMenuOpen } = this.props;
       const { width } = getClientSize();
       if ( width <= md && menuOpened === false ) {
         this.setState({ menuOpened: true });
+        onMenuOpen && onMenuOpen( true );
       }
       if ( width > md && menuOpened === true ) {
         this.setState({ menuOpened: false });
+        onMenuOpen && onMenuOpen( false );
       }
     });
   }
@@ -43,18 +46,25 @@ class Nav extends Component {
 
   render() {
     const { menuOpened } = this.state;
-    console.log(menuOpened);
     return (
       <nav className="nav">
-        <Link href="/">
-          <a className="nav-link">首页</a>
-        </Link>
-        <Link href="/about">
-          <a className="nav-link">关于</a>
-        </Link>
-        <Link href="/about">
-          <a className="nav-link">关于</a>
-        </Link>
+        <ul>
+          <li>
+            <Link href="/">
+              <a className="nav-link">首页</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/about">
+              <a className="nav-link">关于</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/about">
+              <a className="nav-link">关于</a>
+            </Link>
+          </li>
+        </ul>
       </nav>
     );
   }
