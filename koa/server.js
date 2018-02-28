@@ -3,6 +3,9 @@ import Koa from 'koa';
 import next from 'next';
 import koabody from 'koa-body';
 import logger from 'koa-logger';
+import redisStore from 'koa-redis';
+import compress from 'koa-compress';
+import session from 'koa-generic-session';
 import loadRouter from './router';
 import loadApi from './api';
 
@@ -20,6 +23,22 @@ app.prepare().then(() => {
   if ( dev ) {
     server.use( logger());
   }
+
+  // https://github.com/koajs/generic-session
+  // https://github.com/koajs/koa-redis
+  // https://github.com/NodeRedis/node_redis
+  server.use(session({
+    key: 'lamtang',
+    prefix: 'lamtang:sess',
+    allowEmpty: true,
+    errorHandler: () => {}, // errorHandler(err, type, ctx)
+    store: redisStore({
+      host: '127.0.0.1',
+      port: '6379',
+      password: 'lamtang',
+      db: '0' // 默认 0 [0-15]
+    })
+  }));
 
   server.use( loadApi());
   server.use( loadRouter());
