@@ -19,6 +19,7 @@ app.prepare().then(() => {
   server.context.nextApp = app;
 
   server.use( koabody());
+  server.use( compress());
 
   if ( dev ) {
     server.use( logger());
