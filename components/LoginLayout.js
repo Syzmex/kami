@@ -1,26 +1,22 @@
 
 import moment from 'moment';
+import Style from 'styled-jsx/style';
 import { Fragment, Component } from 'react';
-import Head from 'next/head';
-import { Layout } from 'antd';
+import loginStyles from 'styles/login/index.less';
 
-
-const { Header, Content, Footer } = Layout;
 
 class LoginLayout extends Component {
   render() {
-    const { children } = this.props;
+    const { children, className, ...props } = { ...this.props };
     return (
       <Fragment>
-        <Head>
-          <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/antd/3.2.2/antd.min.css" />
-        </Head>
-        <Content>
+        <Style styleId="login-styles" css={loginStyles} />
+        <section {...props} className={className}>
           {children}
-        </Content>
-        <Footer>
-          <p>Copyright © {moment().year()} 7secat 苏ICP备13024683号</p>
-        </Footer>
+        </section>
+        <footer className="layout-footer">
+          <p>Copyright © {moment().year()} 7secat</p>
+        </footer>
       </Fragment>
     );
   }

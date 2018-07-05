@@ -2,13 +2,8 @@
   "presets": ["next/babel", "env", "stage-0"],
   "plugins": [
     "transform-decorators-legacy",
-    [
-      "import",
-      {
-        "libraryName": "antd",
-        "style": false
-      }
-    ],
+    [ "import", { "libraryName": "antd", "style": false }],
+    [ "wrap-in-js", { "extensions": [ "\\.css$", "\\.less$" ]}],
     [
       "module-resolver", {
         "root": ["."],
@@ -19,11 +14,5 @@
         },
         "cwd": "babelrc"
     }],
-    [
-      "wrap-in-js",
-      {
-        "extensions": ["\\.css$", "\\.less$"]
-      }
-    ]
   ]
 }

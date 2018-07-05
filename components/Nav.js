@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import { getClientSize } from 'rc-util/lib/Dom/css';
 import Link from 'next/link';
-import { md } from 'styles/conf';
+import { md } from 'styles/config';
 
 
 class Nav extends Component {

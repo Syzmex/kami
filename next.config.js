@@ -1,16 +1,15 @@
 
 // const { BundleAnalyzerPlugin } = require( 'webpack-bundle-analyzer' );
 const { paths } = require( 'kiwiai' );
-const { modifyVars } = require( './styles/conf' );
+const { modifyVars } = require( './styles/config' ).default;
 // // const { ANALYZE } = process.env;
 const resolvePath = paths.resolveApp;
 
-
 module.exports = {
+
   webpack( config ) {
 
     const cssPaths = [ './pages', './styles', './lib', './components' ].map( resolvePath );
-
     config.module.rules.push({
       test: /\.(css|less)/,
       loader: 'emit-file-loader',

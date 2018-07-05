@@ -28,7 +28,7 @@ app.prepare().then(() => {
   // https://github.com/koajs/generic-session
   // https://github.com/koajs/koa-redis
   // https://github.com/NodeRedis/node_redis
-  server.use(session({
+  server.use( session({
     key: 'lamtang',
     prefix: 'lamtang:sess',
     allowEmpty: true,

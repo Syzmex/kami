@@ -1,0 +1,182 @@
+
+@import '~antd/es/style/index';
+@import '~antd/es/form/style/index';
+@import '~antd/es/button/style/index';
+// @import '~antd/es/icon/style/index';
+@import '~antd/es/checkbox/style/index';
+@import '~antd/es/input/style/index';
+@import '~antd/es/grid/style/index';
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #11151e;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(/static/img/login-bg.jpg);
+}
+
+#__next, #__next > div {
+  height: 100%;
+  position: relative;
+}
+
+.layout-footer {
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  position: absolute;
+  font-size: 12px;
+  width: 100%;
+  bottom: 0;
+}
+
+.layout-login {
+  top: 40%;
+  left: 50%;
+  position: relative;
+  display: inline-block;
+  transform: translate(-50%, -30%);
+}
+
+// form
+.layout-login .ant-form-inline .ant-form-item {
+
+  transition: none;
+
+  &.login-form-button {
+    user-select: none;
+    margin-right: 0;
+  }
+
+  &.login-form-help {
+    user-select: none;
+    margin-right: 0;
+    display: block;
+    .ant-form-item-control-wrapper {
+      display: block;
+    }
+  }
+
+  // 登录错误提示
+  .ant-form-explain {
+    z-index: 1;
+    bottom: 100%;
+    color: #ffffff;
+    margin-top: -2px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    position: absolute;
+    white-space: nowrap;
+    background-color: @red-5;
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.15);
+    &::before {
+      content: " ";
+      width: 0;
+      height: 0;
+      left: 16px;
+      top: 100%;
+      display: block;
+      overflow: visible;
+      position: absolute;
+      border-style: solid;
+      border-width: 4px 5px 0 5px;
+      border-color: @red-5 transparent transparent transparent;
+    }
+  }
+
+  .ant-input, .ant-btn {
+    width: 100%;
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .ant-input {
+    border-color: transparent;
+  }
+
+  .ant-input:hover {
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .ant-input:focus {
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .has-error {
+    .ant-input, .ant-input:hover, .ant-input:focus {
+      border-color: @red-6;
+      box-shadow:
+        1px 1px 12px rgba(0, 0, 0, 0.2),
+        0 0 0 2px rgba(245, 34, 45, 0.1);
+    }
+  }
+
+  .login-form-text {
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .login-form-forgot {
+    float: right;
+  }
+
+}
+
+
+// 宽屏
+
+@media screen and (min-width: 565px) {
+
+  .login-form-input {
+    width: 184px;
+    .ant-input {
+      width: 100%;
+    }
+  }
+
+  .ant-form-inline .ant-form-item-with-help {
+    margin-bottom: 0;
+  }
+
+  .login-form-button {
+    width: 100px;
+    div {
+      width: 100%;
+    }
+  }
+
+  .login-form-forgot {
+    margin-right: 116px;
+  }
+
+}
+
+// 窄屏
+@media screen and (max-width: 564px) {
+
+  .layout-login {
+    width: 100%;
+    padding: 0 32px;
+  }
+
+  .ant-form-inline .ant-form-item {
+    margin-bottom: 24px;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .ant-form-inline .login-form-help {
+    margin-bottom: 0;
+  }
+
+  .login-form-button {
+    width: 100%;
+  }
+
+  .login-form-forgot {
+    margin-right: 0;
+  }
+}

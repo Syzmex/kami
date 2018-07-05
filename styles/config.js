@@ -22,6 +22,8 @@ export default Object.assign( config, {
     '@screen-lg-min': config.lg,
 
     // Extra large screen / full hd
-    '@screen-xl-min': config.xl
+    '@screen-xl-min': config.xl,
+
+    '@primary-color': '#13c2c2'
   }
 });
