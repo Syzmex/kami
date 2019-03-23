@@ -1,6 +1,7 @@
 
 import withRouter from 'lib/withRouter';
 
+
 export default withRouter()(({ app, router, nextApp }) => {
 
   const handle = nextApp.getRequestHandler();
